@@ -1,0 +1,24 @@
+service: ticker-service
+runtime: java
+env: flex
+
+handlers:
+- url: /.*
+  script: this field is required, but ignored
+runtime_config:  # Optional
+  jdk: openjdk8
+  server: jetty9
+manual_scaling:
+  instances: 1
+resources:
+  cpu: 1
+  memory_gb: 2
+beta_settings:
+   enable_app_engine_apis: true
+health_check:
+  enable_health_check: true
+  check_interval_sec: 50
+  timeout_sec: 30
+  unhealthy_threshold: 10
+  healthy_threshold: 5
+  restart_threshold: 60
